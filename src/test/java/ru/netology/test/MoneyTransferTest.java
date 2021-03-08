@@ -23,8 +23,8 @@ public class MoneyTransferTest {
     @Order(1)
     @Test
     void shouldSuccessLoginAndVerifyAndTransferFromSecondToFirst() throws SQLException {
-        val user = DataHelper.registerValidUser();
-        val code = DataHelper.validCode();
+        DataHelper.registerValidUser();
+        DataHelper.validCode();
         returnDemoAccounts10000();
         validTransferFromSecondToFirst();
         returnDemoAccountsAfterSuccessFromSecontToFirst();
@@ -32,19 +32,19 @@ public class MoneyTransferTest {
 
     @Order(2)
     @Test
-    void shouldNotLoginInvalidUser(){
-        val user = DataHelper.registerInvalidUser();
+    void shouldNotLoginInvalidUser() {
+        DataHelper.registerInvalidUser();
     }
 
     @Order(3)
     @Test
-    void shouldNotVerifyInvalidCode(){
-        val code = DataHelper.invalidCode();
+    void shouldNotVerifyInvalidCode() {
+        DataHelper.invalidCode();
     }
 
     @Order(4)
     @Test
-    void shouldISuccessTransferFromFirstToAnother()  {
+    void shouldISuccessTransferFromFirstToAnother() {
         returnDemoAccountsAfterSuccessFromSecontToFirst();
         validTransferFromFirstToAnother();
         returnDemoAccountsAfterSuccessFromFirstToAnother();
@@ -52,29 +52,30 @@ public class MoneyTransferTest {
 
     @Order(5)
     @Test
-    void shouldNotTransferFromSecondToSecond(){
+    void shouldNotTransferFromSecondToSecond() {
         invalidTransferFromSecondToSecond();
     }
 
     @Order(6)
     @Test
-    void shouldNotTransferFromSecondToInvalid(){
+    void shouldNotTransferFromSecondToInvalid() {
         invalidTransferFromSecondToInvalid();
     }
 
     @Order(7)
     @Test
-    void shouldNotTransferExtendAmount(){
+    void shouldNotTransferExtendAmount() {
         invalidTransferFromSecondToFirstExtendAmount();
     }
 
     @Order(8)
     @Test
-    void shouldNotTransferInvalidAmount(){
+    void shouldNotTransferInvalidAmount() {
         invalidTransferFromSecondToFirstInvalidAmount();
     }
 
     @AfterAll
+    @Test
     static void cleaningDB() throws SQLException {
         String dataSQL_users = "DELETE FROM users";
         String dataSQL_cards = "DELETE FROM cards";

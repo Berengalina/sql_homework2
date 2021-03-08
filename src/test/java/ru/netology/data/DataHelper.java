@@ -234,7 +234,7 @@ public class DataHelper {
     }
 
     public static String getVerificationCodefromDB() throws SQLException {
-        val usersSQL = "SELECT code FROM auth_codes";
+        val usersSQL = "SELECT code FROM auth_codes WHERE user_id in (SELECT id FROM users WHERE login='vasya');";
         val runner = new QueryRunner();
         val conn = DriverManager.getConnection("jdbc:mysql://localhost:3000/app_db", "app", "pass");
         val auth_code = runner.query(conn, usersSQL, new BeanHandler<>(DB_Code.class));
