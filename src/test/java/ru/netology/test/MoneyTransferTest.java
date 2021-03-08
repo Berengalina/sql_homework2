@@ -3,7 +3,6 @@ package ru.netology.test;
 import lombok.val;
 import org.apache.commons.dbutils.QueryRunner;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
